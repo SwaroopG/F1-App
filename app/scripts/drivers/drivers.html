@@ -1,0 +1,29 @@
+<body ng-app="f1App" ng-controller="DriversController">
+<div class="jumbotron">
+  <h1>Drivers</h1>
+</div>
+<table>
+  <thead>
+  <td>Rank</td>
+  <td>Country</td>
+  <td>Name</td>
+  <td>Team</td>
+  <td>Points</td>
+  </thead>
+  <tbody>
+  <tr ng-repeat="driver in driversList | filter: searchFilter">
+    <td>{{$index + 1}}</td>
+    <td>
+      <img src="images/flags/{{driver.Driver.nationality}}.png"/>
+    </td>
+    <td>
+      <a href="#/drivers/{{driver.Driver.driverId}}">
+        {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+      </a>
+    </td>
+    <td>{{driver.Constructors[0].name}}</td>
+    <td>{{driver.points}}</td>
+  </tr>
+  </tbody>
+</table>
+</body>
